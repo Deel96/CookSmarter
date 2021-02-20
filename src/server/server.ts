@@ -1,6 +1,12 @@
 import { serve } from "https://deno.land/std@0.87.0/http/server.ts";
-const s = serve({ port: 8000 });
-console.log("http://localhost:8000/");
+import { parse } from 'https://deno.land/std/flags/mod.ts';
+
+const { args } = Deno;
+const DEFAULT_PORT = 8000;
+const argPort = parse(args).port;
+
+const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
+
 for await (const req of s) {
-  req.respond({ body: "Hello World\n" });
+  req.respond({ body: "Hello Worlds!!!\n" });
 }
