@@ -14,5 +14,5 @@ const s = serve({ port: port });
 console.log("http://localhost:" + port);
 
 for await (const req of s) {
-  req.respond({ body: "Hallo du\n" });
+  req.respond({ body: "CookSmarter - Jeden Tag frisch kochen in unter 30 Minuten." });
 }
